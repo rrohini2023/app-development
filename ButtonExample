@@ -1,0 +1,49 @@
+this is the set of code 
+test code 
+package selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class buttonExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("driver.chrome.driver", "C:\\Selenium 2023\\chromedriver_win32\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.leafground.com/button.xhtml");
+		
+		//confirm if the button is disabled
+		
+		WebElement disableButton = driver.findElement(By.id("j_idt88:j_idt92"));
+		Boolean isdisabled = disableButton.isEnabled();
+		if (isdisabled.equals("true"));
+		System.out.println("the button is disabled");
+		
+		// find the position of the submit button
+		WebElement submitButton = driver.findElement(By.id("j_idt88:j_idt94"));
+		Point xyPosition = submitButton.getLocation();
+		int xValue = xyPosition.getX();
+		int yValue = xyPosition.getY();
+		System.out.println("the position of the submit button is "+ xValue + "," + yValue);
+		
+		//Find the color of the savebutton 
+		WebElement saveButton = driver.findElement(By.id("j_idt88:j_idt96"));
+		String colorOfButton = saveButton.getCssValue("background-color");
+		System.out.println("the color of the save button is "+ colorOfButton);;
+		
+		// FIND HEIGHT and width of the button 
+		WebElement submitButton2 = driver.findElement(By.id("j_idt88:j_idt98"));
+		int buttonHeight = submitButton2.getSize().height;
+		int buttonWidth = submitButton2.getSize().width;
+		System.out.println("the height is: "+buttonHeight  + " the width is: "+buttonWidth );
+		
+		//Mouse over and confirm that the color changed
+		
+}
+
+}
